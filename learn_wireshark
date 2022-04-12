@@ -1,0 +1,36 @@
+scenario -  A hacker has posted personal information on a dateing app.
+RLO - save christine
+additional task - do writeup
+
+aircrack-ng suite
+
+
+airmon-ng(monitor mode
+	Monitor Mode
+		sudo iw dev
+		sudo iwconfig
+		sudo airmon-ng check
+		sudo airmon-ng check kill
+		sudo airmon-ng start wlan0 (monitor mode is now enabled)
+		
+		sudo airmon-ng stop wlan0mon
+		sudo systemctl start NetworkManager
+
+	Promiscuous Mode
+		ifconfig wlan0 down
+		iwconfig wlan0 mode monitor
+		iwconfig wlan0 up
+		ifconfig wlan0 down
+		iwconfig wlan0 mode managed
+
+airdump-ng
+	airodump-ng --channel 1 --bssid 90:99:90:99:90:99 wlan0mon
+	wireshark
+	wireshark psk generator
+
+		define 
+			bss - working with the same ap (all devices on one ap)
+			bssid - mac address
+			ssid - network name
+			ess - shared network name (multiple aps on one network)
+			essid - same as bssid
