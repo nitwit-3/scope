@@ -1,0 +1,114 @@
+401
+cryptography
+	ceasar cipher - rotation cipher
+		a b c d e f g h i j k l m n o p q r s t u v w x y z
+		d e f g h i j k l m n o p q r s t u v w x y z a b c 
+
+	enigma cipher - machine used to encrypt / decrypt
+
+digital standard 
+	3des - 56 bit key size 
+		uses 3 keys 
+			first key to encrypt he plaintext 
+			second key used to decrypt the ciphertext from first round 
+			third key used to encrypt the cipher text from the second text
+
+advanced encryption standard 
+	rijnael - supports multiple key lengths 
+		aes 128 - 256 bits
+
+402
+cryptography
+   aescrypt
+	vi plaintext.txt 
+	aescrypt -e -p mypass plaintext.txt
+	cat plaintext.txt.aes
+	aescrrypt -d -p mypass plaintext.txt.aes
+   openssl
+	openssl genrsa -des3 -out private.key 4096
+	enter pass phrase for private.key
+	openssl rsa -in private.key -pubout -out public.key
+	openssl rsautl -encrpyt -pubin -inkey public.key -in "text.txt" -out encrypted.txt
+	cat encrypted.txt
+	openssl rsautl -decrypt -inkey private.key -in encrypted.txt -out newplaintext.txt
+	diff newplaintext.txt plaintext.txt
+403
+public key cryptography
+   x509 certificate (centralized)
+	openssl rsa -noout -text -in server.key (private key)
+	openssl x509 -noout -text -in server.key (public key)
+
+   pgp (decentralized) - corrupted video
+	sudo apt-get install gnupg
+	gpg --gen-key
+	gpg --export -a "User Name" > public.key
+	gpg --export-secret-key -a "User Name" > private.key
+	gpg --list-keys
+	gpg --list-secret-keys
+	gpg -e -u "Sender User Name" -r "Receiever User Name" somefile
+	gpg -d mydata.txt.gpg
+404
+   certificate (selfsigned)
+	openssl genrsa -des3 -out ca.key 4096
+	openssl req -new -x509 -days 365 -key ca.key -out ca.crt
+	openssl x509 -text -in ca.crt
+	browser / advanced / view certificate / authorities
+405
+   crytographic hash (no encryption involved) - corrupted video
+	md5sum ca.crt
+	echo "something" | md5sum
+	md5sum example.txt
+	md5sum * 
+406
+	des
+		56 bit keys
+		block cipher
+		64 bit blocks
+	3des (triple des)
+		DES algorithm used three times
+			K1 is used to encrypt a message resulting in c1 cipher text
+			K2 is used to decrypt a c1 resulting in c2 cipher text
+			K3 is used to encrypt c2 resulting in c3 cipher text
+		56 bit keys (3)
+		168 bits total
+	aes (advanced encryption standard)
+		varible block sizes in multiple of 32 bits
+		fixed 128 bit block size 
+		keys lengths in 128 192 256
+407
+	ssl 3.0 (Secure Socket Layer ) (web transmission to server encrypt)
+		wireshrk
+			ip src = = 192.168.1.1
+			215 client hello
+			333 client key exchange
+			72  change cipher spec
+			119 encrypted handshake message
+			application data
+
+		sslscan
+			sslscan www.google.com
+408 
+	ssh
+		ssh user@192.168.1.2
+		ssh-keygen
+		$ls / id_rsa.pub
+		scp id_rsa.pub user@192.168.1.2:.ssh (secure copy)
+		cat id_rsa.pub >> authorized _keys2
+		login
+
+	cd .ssh
+	$ cat known_hosts
+	$ cat config
+	
+409
+  disk encryption
+	processors use tpm (trusted platform module) access decrypt/ encrypt the disk
+		windows uses bitlocker
+		mac uses file vault
+		ubuntu uses gdecrypt
+410
+   frequency analysis (letter analysis of ciphers)
+
+		a b c d e f g h i j k l m n o p q r s t u v w x y z
+		d e f g h i j k l m n o p q r s t u v w x y z a b c 
+ 			guessing the letter based on frequency
