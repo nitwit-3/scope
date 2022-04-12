@@ -1,0 +1,38 @@
+scope get into box (metasploitable / owasp)
+ip_u
+ip_c
+ip_m 192.168.1.233
+ip_o
+The default login and password is tryhackme:admin
+The default login and password is
+The default login and password is msfadmin:msfadmin.
+The default login and password is
+
+Building Kali
+
+downloaded kali-linux-2020.1-installer-amd64 
+install crashed on cmdline install (crashed on software install) 
+ran graphical install 
+host: nitwit user:pass: nitwit:admin
+default kde build default software package
+downloaded kali-linux-2021.3-vbox-amd64.vmdk
+changed default credentials to kali root user
+
+Iso (vmware workstation 16 / Oracle Virutalbox 6.1)
+
+Installing unbuntu / centos / windows 7 with no services (after viruses to see how they get in with no services) 
+concluding that my understanding of how to get root (ubuntu) without services is limited 
+installing metasploitable / owasp 0-5  
+metasploitable is in new format vmdk, create vm without installing os, after vm is created customize vm and delete hard disk, add new harddisk, follow prompts and use existing vmdk
+existing vmdk wont boot, installing virtualbox to test
+
+
+Getting into box  
+
+started postgresql service, ran msfconsole
+both boxes seem to be on the same ip, changed network adapter to bridged 
+run nmap -sV 192.168.1.233
+search for auxilary on ssh 
+use auxiliary(scanner/ssh/ssh_login)
+set options, target, and wordlist 
+run auxilary 
