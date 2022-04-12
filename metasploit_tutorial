@@ -1,0 +1,44 @@
+this is a sql service to start metasploit and will allow it to run faster because it runs a database
+start service - start postgresql start
+
+Most auxilary / exploits / payloads / post should be run via terminal both terminal and graphical methods are provided
+start metasploit - msfconsole (terminal) / armitage (graphical)
+
+search for auxilary / exploits / payloads / post in the database 
+search linux / windows ...
+
+use a auxilary / exploits / payloads / post
+use payload/linux/armle/meterpreter/bind_tcp
+
+Modules - 
+definition auxilary - exploit runs without a payload
+definition encoders - bypass antiviurs 
+definition evasion -
+definition exploit - target a box with a vulnerbility
+definition nops -
+definition payload - virus (singles, stagers, stages)
+definition post - gathers evidents and pivots into a network
+*definition meterpreter - runs a invisible shell 
+
+location of modules
+/usr/share/metasploit-framework/modules
+
+location of wordlists
+/usr/share/wordlists/metasploit (set USERPaSS_FILE /usr/share//wordlists/metasploit/mirai_user_pass.txt)
+
+
+Run a show command to get info
+show options, targets, info
+
+Set a options,targets, payload
+?
+
+run auxilary - run
+run encoders -  
+run evasion -
+run exploit - exploit
+run nops - 
+run payload - generate
+run post - 
+
+msfvenom - create payloads, backdoors (ruby/shellcode)
